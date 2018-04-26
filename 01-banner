@@ -19,4 +19,4 @@ echo -e "
  @@@@@             @@@@@@@@@@@@@@   @@@@@@@@@@@@@   ${YEL}//////(${NC}     @@@@@@@
 "
 echo " "
-echo -e " ${YEL}CPU.................:${NC} ${PUR}Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz${NC}"
+echo -e " ${YEL}CPU.................:${NC} ${PUR}$(lscpu | grep -oP 'Model name:\s*\K.+ | xargs ')${NC}"

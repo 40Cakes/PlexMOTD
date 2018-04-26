@@ -1,0 +1,8 @@
+#!/bin/bash
+
+YEL='\033[0;33m'
+PUR='\033[0;35m'
+NC='\033[0m'
+
+echo -e " ${YEL}Plex Streams........:${NC} There are currently ${PUR}$(curl -s "http://localhost:8181/api/v2?apikey=APIKEY&cmd=get_activity" | tac | tac | jq '.response.data.stream_count' | tr -d '"')${NC} users streaming on Plex"
+echo -e " ${YEL}Plex Bandwidth......:${NC} Plex streams are using ${PUR}$(echo "scale=2; $(curl -s "http://localhost:8181/api/v2?apikey=APIKEY&cmd=get_activity" | tac | tac | jq '.response.data.total_bandwidth') / 1024" | bc)${NC} mbps upstream"

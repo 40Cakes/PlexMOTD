@@ -1,0 +1,8 @@
+#!/bin/bash
+
+YEL='\033[0;33m'
+PUR='\033[0;35m'
+NC='\033[0m'
+
+echo -e " ${YEL}SSH Logins..........:${NC} There are currently ${PUR}$(who | wc -l)${NC} users logged in"
+

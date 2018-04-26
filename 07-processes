@@ -1,0 +1,7 @@
+#!/bin/bash
+
+YEL='\033[0;33m'
+PUR='\033[0;35m'
+NC='\033[0m'
+
+echo -e " ${YEL}Processes...........:${NC} There are currently ${PUR}$(ps -ef | wc -l)${NC} processes running"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+YEL='\033[0;33m'
+PUR='\033[0;35m'
+NC='\033[0m'
+
+echo -e " ${YEL}Load Averages.......:${NC} 1 min: ${PUR}$(cat /proc/loadavg | cut -f1 -d' ')%${NC} 5 mins: ${PUR}$(cat /proc/loadavg | cut -f2 -d' ')%${NC} 15 mins: ${PUR}$(cat /proc/loadavg | cut -f3 -d' ')%${NC}"

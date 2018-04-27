@@ -1,6 +1,6 @@
 # PlexMOTD
 
-![PlexMOTD](https://i.imgur.com/9Yk0ZBX.png)
+![PlexMOTD](https://i.imgur.com/MCvIwCA.png)
 
 I created these MOTD scripts so that I could see my Plex & Transmission statistics at a glance when I login to my server.
 This is running on Ubuntu 16.04, and the scripts are split into manageable chunks.

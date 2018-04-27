@@ -12,3 +12,10 @@ Note: this was a quick hack effort, I didn't put a whole lot of effort into maki
 I get the torrent stats from Transmission, and I am using Tautulli (PlexPy) API to get the Plex stream stats. I have also removed my API keys and credentials.
 
 If you would like any clarification on any commands/API calls that I am using, feel free to comment or PM me :)
+
+## To-Do List:
+- Fix memory stats, I don't think it is accurate at the moment
+- Add disk space status
+- Maybe add local weather
+- Fix CPU usage as unix load =/= percentage
+- Add some more plex stats

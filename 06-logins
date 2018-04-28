@@ -1,14 +1,5 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-YEL='\033[0;33m'
-PUR='\033[0;35m'
-NC='\033[0m'
+source colors.txt
 
 echo -e " ${YEL}SSH Logins..........:${NC} There are currently ${PUR}$(who | wc -l)${NC} users logged in"
-
-=======
-source /etc/update-motd.d/colors.txt
-
-echo -e " ${YEL}SSH Logins..........:${NC} There are currently ${PUR}$(who | wc -l)${NC} users logged in"
->>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725

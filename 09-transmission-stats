@@ -1,22 +1,10 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-YEL='\033[0;33m'
-PUR='\033[0;35m'
-NC='\033[0m'
-
-echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(transmission-remote 192.168.0.199 -l | wc -l)${NC} torrents in Transmission"
-echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(transmission-remote 192.168.0.199 -l | grep Seeding | wc -l)${NC} torrents actively seeding"
-echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(transmission-remote 192.168.0.199 -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(transmission-remote 192.168.0.199 -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(transmission-remote 192.168.0.199 -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"
-=======
-source /etc/update-motd.d/colors.txt
-source /etc/update-motd.d/config.conf
+source colors.txt
+source config.conf
 
 echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
 echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
 echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
 echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
 echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"
->>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725

@@ -1,16 +1,7 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-YEL='\033[0;33m'
-PUR='\033[0;35m'
-NC='\033[0m'
-
-echo -e " ${YEL}Plex Streams........:${NC} There are currently ${PUR}$(curl -s "http://localhost:8181/api/v2?apikey=APIKEY&cmd=get_activity" | tac | tac | jq '.response.data.stream_count' | tr -d '"')${NC} users streaming on Plex"
-echo -e " ${YEL}Plex Bandwidth......:${NC} Plex streams are using ${PUR}$(echo "scale=2; $(curl -s "http://localhost:8181/api/v2?apikey=APIKEY&cmd=get_activity" | tac | tac | jq '.response.data.total_bandwidth') / 1024" | bc)${NC} mbps upstream"
-=======
-source /etc/update-motd.d/config.conf
-source /etc/update-motd.d/colors.txt
+source config.conf
+source colors.txt
 
 echo -e " ${YEL}Plex Streams........:${NC} There are currently ${PUR}$(curl -s "$TAUTIP:$TAUTPORT/api/v2?apikey=$TAUTAPI&cmd=get_activity" | tac | tac | jq '.response.data.stream_count' | tr -d '"')${NC} users streaming on Plex"
 echo -e " ${YEL}Plex Bandwidth......:${NC} Plex streams are using ${PUR}$(echo "scale=2; $(curl -s "$TAUTIP:$TAUTPORT/api/v2?apikey=$TAUTAPI&cmd=get_activity" | tac | tac | jq '.response.data.total_bandwidth') / 1024" | bc)${NC} mbps upstream"
->>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725

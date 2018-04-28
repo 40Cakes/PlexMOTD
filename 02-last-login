@@ -1,11 +1,5 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-YEL='\033[0;33m'
-PUR='\033[0;35m'
-NC='\033[0m'
-=======
-source /etc/update-motd.d/colors.txt
->>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725
+source colors.txt
 
 echo -e " ${YEL}Last login..........:${NC} ${PUR}$(last | head -1 | cut -c 1-9 | xargs)${NC} at ${PUR}$(last | head -1 | cut -c 40-55 | xargs)${NC} from ${PUR}$(last | head -1 | cut -c 23-39 | xargs)${NC}"

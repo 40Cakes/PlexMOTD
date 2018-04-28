@@ -7,9 +7,11 @@ if ! [ -e /usr/bin/transmission-remote ]; then
         exit 1
 fi
 
+LIST="$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l)"
+STATS="$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5)"
 
-echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
-echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
-echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(echo "$(echo "$LIST" | wc -l) - 2" | bc)${NC} torrents in Transmission"
+echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(echo "$LIST" | grep Seeding | wc -l)${NC} torrents actively seeding"
+echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(echo "$STATS" | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(echo "$STATS" | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(echo "$STATS" | grep Ratio | cut -f2 -d':' | xargs)${NC}"

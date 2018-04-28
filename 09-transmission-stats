@@ -1,10 +1,15 @@
 #!/bin/bash
 
-source /etc/update-motd.d/colors.txt
-source /etc/update-motd.d/config.conf
+source colors.txt
+source config.conf
 
-echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
-echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
-echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(transmission-remote -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"
+if ! [ -e /usr/bin/transmission-remote ]; then
+        exit 1
+fi
+
+
+echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
+echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
+echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"

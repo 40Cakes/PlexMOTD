@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-# Custom Plex MOTD
-
-I found this on reddit and wanted to get it into github for my own use.  It's made by OceanHorn.
-
-https://www.reddit.com/r/PleX/comments/8ezzfp/got_bored_at_work_and_made_a_custom_motd_for_my/
-
-The original author made their own repo:
-
-https://github.com/ryanleonard1/PlexMOTD
 =======
 # PlexMOTD
+
+Ackis' Fork of https://github.com/ryanleonard1/PlexMOTD
 
 ![PlexMOTD](https://i.imgur.com/MCvIwCA.png)
 
@@ -30,4 +22,3 @@ If you would like any clarification on any commands/API calls that I am using, f
 - Maybe add local weather
 - Fix CPU usage as unix load =/= percentage
 - Add some more plex stats
->>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725

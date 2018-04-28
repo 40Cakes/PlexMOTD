@@ -8,8 +8,8 @@ if ! [ -e /usr/bin/transmission-remote ]; then
 fi
 
 
-echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
-echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
-echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
-echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | wc -l)${NC} torrents in Transmission"
+echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l | grep Seeding | wc -l)${NC} torrents actively seeding"
+echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Downloaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Uploaded............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Uploaded | cut -f2 -d':' | xargs)${NC}"
+echo -e " ${YEL}Ratio...............:${NC} ${PUR}$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5 | grep Ratio | cut -f2 -d':' | xargs)${NC}"

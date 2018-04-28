@@ -1,7 +1,11 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 YEL='\033[0;33m'
 PUR='\033[0;35m'
 NC='\033[0m'
+=======
+source /etc/update-motd.d/colors.txt
+>>>>>>> cd162cfe4babcd49e413fd4feb5ae2a393798725
 
 echo -e " ${YEL}Load Averages.......:${NC} 1 min: ${PUR}$(cat /proc/loadavg | cut -f1 -d' ')%${NC} 5 mins: ${PUR}$(cat /proc/loadavg | cut -f2 -d' ')%${NC} 15 mins: ${PUR}$(cat /proc/loadavg | cut -f3 -d' ')%${NC}"

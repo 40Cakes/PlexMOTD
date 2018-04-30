@@ -10,6 +10,8 @@ fi
 LIST="$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -l)"
 STATS="$(/usr/bin/transmission-remote $TRANSIP:$TRANSPORT -n $TRANSUSER:$TRANSPASS -st | tail -5)"
 
+echo $LIST
+
 echo -e " ${YEL}Torrents............:${NC} There are currently ${PUR}$(echo "$(echo "$LIST" | wc -l) - 2" | bc)${NC} torrents in Transmission"
 echo -e " ${YEL}Seeding Torrents....:${NC} There are currently ${PUR}$(echo "$LIST" | grep Seeding | wc -l)${NC} torrents actively seeding"
 echo -e " ${YEL}Downloaded..........:${NC} ${PUR}$(echo "$STATS" | grep Downloaded | cut -f2 -d':' | xargs)${NC}"

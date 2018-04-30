@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! [ -e /usr/bin/jq ]; then
-	echo "Warning: /usr/bin/bc not found, please run 'sudo apt-get install jq'"
+	echo "Warning: /usr/bin/jq not found, please run 'sudo apt-get install jq'"
 	exit 1
 fi
 

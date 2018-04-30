@@ -4,22 +4,27 @@ MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${MY_PATH}/colors.txt"
 #source "${MY_PATH}/config.conf"
 
+# Read in the list of services from the services file.
+if [ ! -f "${MY_PATH}/services" ]; then
+	SERVICES=(
+		"plexmediaserver"
+	)
+else
+	readarray -t SERVICES < "${MY_PATH}/services"
+fi
+
+
 service_check(){
 
-STATE=$(service $1 status | grep "active (running)" | wc -l)
-	if [ "$STATE" = "1" ]; then
-		echo -e "${GRN}OK!${NC}"
-	else
-		echo -e "${RED}Not running...${NC}"
-	fi
+	STATE=$(service $1 status | grep "active (running)" | wc -l)
+		if [ "$STATE" = "1" ]; then
+			echo -e "${GRN}OK!${NC}"
+		else
+			echo -e "${RED}Not running...${NC}"
+		fi
 }
 
-PLEXSTATE=$(service_check plexmediaserver)
-TRANSSTATE=$(service_check transmission-daemon)
-TAUTSTATE=$(service_check tautulli)
-OMBISTATE=$(service_check ombi)
-
-echo -e " ${YEL}Plex Status.........:${NC} $(echo $PLEXSTATE)"
-echo -e " ${YEL}Transmission Status.:${NC} $(echo $TRANSSTATE)"
-echo -e " ${YEL}Tautulli Satus......:${NC} $(echo $TAUTSTATE)"
-echo -e " ${YEL}Ombi Status.........:${NC} $(echo $OMBISTATE)"
+for index in "${!SERVICES[@]}"; do
+	STATE=$(service_check "${SERVICES[index]}")
+	echo -e " ${YEL}${SERVICES[index]} Status.........:${NC} $(echo $STATE)"
+done

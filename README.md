@@ -21,3 +21,5 @@ Enter your credentials into `config.conf`
 - Maybe add local weather
 - Fix CPU usage as unix load =/= percentage
 - Add some more plex stats
+- Add more torrent clients such as Deluge/uTorrent/qBitTorrent
+- Re-arrange the stats into a cleaner format

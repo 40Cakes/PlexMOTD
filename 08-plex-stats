@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source config.conf
-source colors.txt
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${MY_PATH}/colors.txt"
+source "${MY_PATH}/config.conf"
 
 if ! [ -e /usr/bin/jq ]; then
 	exit 1

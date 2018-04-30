@@ -9,4 +9,5 @@
 ./07-processes
 ./08-plex-stats
 ./09-transmission-stats
-
+./10-sabnzbd-stats
+./11-process-check

@@ -26,7 +26,7 @@ service_check(){
 pad=$(printf "%0.1s" "${PAD_CHARACTER}"{1..60})
 
 for index in "${!SERVICES[@]}"; do
-	printf "${YEL}%s " "${SERVICES[index]}"
+	printf " ${YEL}%s " "${SERVICES[index]}"
 	SERVICE_LENGTH=${#SERVICES[index]}
 	STATE=$(service_check "${SERVICES[index]}")
 	STATE_LENGTH=${#STATE}

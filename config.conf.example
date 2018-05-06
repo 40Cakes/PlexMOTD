@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TRANSIP="http://192.168.0.199" # IP Address for Transmission
+TRANSPORT="9091" # Transmission Port
+
+TRANSUSER="transmission" # Transmission Web Username
+TRANSPASS="password" # Transmission Web Password
+
+TAUTIP="http://192.168.0.199" # Tautulli IP/Hostname
+TAUTPORT="8181" # Tautulli Port
+TAUTAPI="apikey" # Tautulli API Key
+
+SABHOST="http://localhost" # SABNZBD IP/Hostname
+SABPORT="8080" # SABNZBD Port
+SABAPI="apikey" # SABNZBD API Key
+
+PAD_LENGTH=60 # How much padding do we want for the process check
+PAD_CHARACTER="." # What type of character do you want to use to pad output?

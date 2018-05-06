@@ -2,7 +2,7 @@
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${MY_PATH}/colors.txt"
-#source "${MY_PATH}/config.conf"
+source "${MY_PATH}/config.conf"
 
 # Read in the list of services from the services file.
 if [ ! -f "${MY_PATH}/services" ]; then
@@ -15,7 +15,6 @@ fi
 
 
 service_check(){
-
 	STATE=$(service $1 status | grep "active (running)" | wc -l)
 		if [ "$STATE" = "1" ]; then
 			echo -e "${GRN}OK!${NC}"
@@ -24,7 +23,13 @@ service_check(){
 		fi
 }
 
+pad=$(printf "%0.1s" "${PAD_CHARACTER}"{1..60})
+
 for index in "${!SERVICES[@]}"; do
+	printf "${YEL}%s " "${SERVICES[index]}"
+	SERVICE_LENGTH=${#SERVICES[index]}
 	STATE=$(service_check "${SERVICES[index]}")
-	echo -e " ${YEL}${SERVICES[index]} Status.........:${NC} $(echo $STATE)"
+	STATE_LENGTH=${#STATE}
+
+	printf "%*.*s${NC} ${STATE}\n" 0 $((PAD_LENGTH - SERVICE_LENGTH - STATE_LENGTH)) "$pad"
 done

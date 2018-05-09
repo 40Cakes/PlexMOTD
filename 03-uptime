@@ -1,6 +1,6 @@
 #!/bin/bash
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${MY_PATH}/colors.txt"
+source "${MY_PATH}/config.conf"
 
 echo -e " ${YEL}Uptime..............:${NC} ${PUR}$(uptime -p | sed 's/^up.//')${NC}"

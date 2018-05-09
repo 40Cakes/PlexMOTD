@@ -1,6 +1,6 @@
 #!/bin/bash
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${MY_PATH}/colors.txt"
+source "${MY_PATH}/config.conf"
 
 echo -e " ${YEL}SSH Logins..........:${NC} There are currently ${PUR}$(who | wc -l)${NC} users logged in"

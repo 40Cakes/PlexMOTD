@@ -6,7 +6,6 @@ if ! [ -e /usr/bin/jq ]; then
 fi
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${MY_PATH}/colors.txt"
 source "${MY_PATH}/config.conf"
 
 QUEUE="$(curl -s "$SABHOST:$SABPORT/sabnzbd/api?mode=qstatus&apikey=$SABAPI&output=json")"

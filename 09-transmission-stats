@@ -1,7 +1,6 @@
 #!/bin/bash
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${MY_PATH}/colors.txt"
 source "${MY_PATH}/config.conf"
 
 if ! [ -e /usr/bin/transmission-remote ]; then

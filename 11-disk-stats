@@ -7,7 +7,7 @@ echo -e "${BLU}                    	Used	Avail.	Percent${NC}"
 
 for i in $(echo $DISKS | sed "s/,/ /g"); do
 
-    if [ -d "$i" ]; then
+    if mountpoint -q $i; then
         AVAIL="$(df --output=avail $i | tail -1)"
         USED="$(df --output=used $i | tail -1)"
         PERCENT="$(df --output=pcent $i | tail -1 | sed 's/\%//')"

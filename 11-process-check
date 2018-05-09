@@ -4,15 +4,18 @@ MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${MY_PATH}/colors.txt"
 source "${MY_PATH}/config.conf"
 
-# Read in the list of services from the services file.
-if [ ! -f "${MY_PATH}/services" ]; then
+# Check for services file from config.conf.
+if [ -f "${SERVICEFILE}" ]; then
+	readarray -t SERVICES < "${SERVICEFILE}"
+# Check to see if we have a service file in the directory where the script is run.
+elif [ -f "${MY_PATH}/services" ]; then
+	readarray -t SERVICES < "${MY_PATH}/services"
+# We don't have a service file, lets default to just checking for plex.
+else
 	SERVICES=(
 		"plexmediaserver"
 	)
-else
-	readarray -t SERVICES < "${MY_PATH}/services"
 fi
-
 
 service_check(){
 	STATE=$(service $1 status | grep "active (running)" | wc -l)
@@ -30,6 +33,5 @@ for index in "${!SERVICES[@]}"; do
 	SERVICE_LENGTH=${#SERVICES[index]}
 	STATE=$(service_check "${SERVICES[index]}")
 	STATE_LENGTH=${#STATE}
-
 	printf "%*.*s${NC} ${STATE}\n" 0 $((PAD_LENGTH - SERVICE_LENGTH - STATE_LENGTH)) "$pad"
 done

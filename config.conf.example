@@ -18,3 +18,14 @@ PAD_LENGTH=60 # How much padding do we want for the process check
 PAD_CHARACTER="." # What type of character do you want to use to pad output?
 
 SERVICEFILE="" # Where is the file with a list of services we want to check?
+
+BLK='\033[0;30m' # Black
+RED='\033[0;31m' # Red
+GRN='\033[0;32m' # Green
+BLU='\033[0;34m' # Blue
+CYA='\033[0;36m' # Cyan
+WHI='\033[0;37m' # White
+YEL='\033[0;33m' # Yellow
+PUR='\033[0;35m' # Purple
+NC='\033[0m' # No Color
+

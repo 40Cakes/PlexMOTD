@@ -1,19 +1,27 @@
 #!/bin/bash
 
+# This script will copy the files from this directory to your
+
 # If it's not root, the script restarts itself through sudo.
 [[ $UID = 0 ]] || exec sudo "$0"
 
-cp ./colors.txt /etc/update-motd.d/
-cp ./config.conf /etc/update-motd.d/
-#cp ./01-banner ./services /etc/update-motd.d/
-cp ./01-banner /etc/update-motd.d/
-cp ./02-last-login /etc/update-motd.d/
-cp ./03-uptime /etc/update-motd.d/
-cp ./04-load-average /etc/update-motd.d/
-cp ./05-memory /etc/update-motd.d/
-cp ./06-logins /etc/update-motd.d/
-cp ./07-processes /etc/update-motd.d/
-cp ./08-plex-stats /etc/update-motd.d/
-cp ./09-transmission-stats /etc/update-motd.d/
-cp ./10-sabnzbd-stats /etc/update-motd.d/
-cp ./11-process-check /etc/update-motd.d/
+FILELIST=(
+	"config.conf"
+	"01-banner"
+	"02-last-login"
+	"03-uptime"
+	"04-load-average"
+	"05-memory"
+	"06-logins"
+	"07-processes"
+	"08-plex-stats"
+	"09-transmission-stats"
+	"10-sabnzbd-stats"
+	"11-process-check"
+)
+
+for index in "${!FILELIST[@]}"; do
+	touch "./${FILELIST[index]}"
+	cp "./${FILELIST[index]}" "/etc/update-motd.d/"
+	rm "./${FILELIST[index]}~"
+done

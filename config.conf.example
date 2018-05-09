@@ -16,3 +16,5 @@ SABAPI="apikey" # SABNZBD API Key
 
 PAD_LENGTH=60 # How much padding do we want for the process check
 PAD_CHARACTER="." # What type of character do you want to use to pad output?
+
+SERVICEFILE="" # Where is the file with a list of services we want to check?

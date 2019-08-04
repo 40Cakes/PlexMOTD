@@ -16,6 +16,7 @@ FILELIST=(
 	"09-transmission-stats"
 	"10-sabnzbd-stats"
 	"11-process-check"
+	"12-disk-stats"
 )
 
 

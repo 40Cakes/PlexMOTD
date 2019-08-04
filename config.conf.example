@@ -29,3 +29,4 @@ YEL='\033[0;33m' # Yellow
 PUR='\033[0;35m' # Purple
 NC='\033[0m' # No Color
 
+DISKS=/mnt/SG-1TB-1/,/mnt/SG-1TB-2/ # What are your mount points?

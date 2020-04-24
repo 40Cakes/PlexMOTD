@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source /etc/update-motd.d/config.conf
+source /etc/update-motd.d/colors.txt
+/bin/bash /etc/update-motd.d/dependency-check.sh
+
+echo -e " ${YEL}Missing Tv Episodes :${NC} There are currently ${PUR}$(curl -s $SONARRHOST:$SONARRPORT/api/wanted/missing?apikey=$SONARRAPI |jq -r '.totalRecords' | tr -d '"' )${NC} Episodes missing in Sonnar"
+
+
+
+
+
